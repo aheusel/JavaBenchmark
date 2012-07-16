@@ -32,7 +32,7 @@
 
 package javabenchmark;
 
-import java.util.HashMap;
+import java.util.Map;
 import javabenchmark.units.MetricPrefix;
 import javabenchmark.units.Unit;
 import javafx.concurrent.Task;
@@ -53,5 +53,5 @@ public interface Measurement
     public MetricPrefix getPrefixY();
     @Override
     public String toString();
-    public HashMap<String, Task<XYChart.Series<Double, Double>>> getTasks();
+    public Map<String, Task<XYChart.Series<Double, Double>>> getTasks();
 }

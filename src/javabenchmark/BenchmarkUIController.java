@@ -49,6 +49,8 @@ public class BenchmarkUIController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         choiceBox.getItems().clear();
-        choiceBox.getItems().addAll("eins", "zwei", "drei", "vier");
+        choiceBox.getItems().addAll("Bytecode", "Methods", "NIO");
+        choiceBox.getItems().add("bla");
+        choiceBox.getSelectionModel().selectFirst();
     }    
 }

@@ -5,10 +5,10 @@
 package javabenchmark.bytecode;
 
 import java.util.HashMap;
+import java.util.Map;
 import javabenchmark.Measurement;
 import javabenchmark.units.MetricPrefix;
 import javabenchmark.units.TimeUnit;
-import javabenchmark.Tool;
 import javabenchmark.units.Unit;
 import javafx.concurrent.Task;
 import javafx.scene.chart.XYChart;
@@ -27,9 +27,27 @@ public class MeasureBytecode implements Measurement
     private final HashMap<String, Task<XYChart.Series<Double, Double>>> _tasks =
             new HashMap<String, Task<XYChart.Series<Double, Double>>>(); 
 
-    public MeasureBytecode() {}
+    public MeasureBytecode()
+    {
+        this(10000, 10000000, 100, 3);
+    }
+    
+    public MeasureBytecode(final int size, final int nrCycles, final int nrMeasurements, final int intervalsPerBin)
+    {
+        _size = size;
+        _nrCycles = nrCycles;
+        _nrMeasurements = nrMeasurements;
+        _intervalsPerBin = intervalsPerBin;
+        refresh();
+    }
     
 
+    private void refresh()
+    {
+        _tasks.clear();
+        _tasks.put("Static", new MeasureStatic(_size, _nrCycles, _nrMeasurements, _intervalsPerBin));        
+    }
+    
     @Override
     public String getDescription()
     {
@@ -87,6 +105,7 @@ public class MeasureBytecode implements Measurement
     public void setSize(int size)
     {
         this._size = size;
+        refresh();
     }
 
     /**
@@ -103,6 +122,7 @@ public class MeasureBytecode implements Measurement
     public void setNrCycles(int nrCycles)
     {
         this._nrCycles = nrCycles;
+        refresh();
     }
 
     /**
@@ -119,6 +139,7 @@ public class MeasureBytecode implements Measurement
     public void setNrMeasurements(int nrMeasurements)
     {
         this._nrMeasurements = nrMeasurements;
+        refresh();
     }
 
     /**
@@ -135,12 +156,14 @@ public class MeasureBytecode implements Measurement
     public void setIntervalsPerBin(int intervalsPerBin)
     {
         this._intervalsPerBin = intervalsPerBin;
+        refresh();
     }
 
+    // TODO Wrap object into read-only map interface.
     @Override
-    public HashMap<String, Task<Series<Double, Double>>> getTasks()
+    public Map<String, Task<Series<Double, Double>>> getTasks()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _tasks;
     }
 
 

@@ -11,13 +11,13 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaBenchmark.jar" size="39915" download="eager" />
-    <jar href="lib/asm-4.0.jar" size="48872" download="eager" />
-    <jar href="lib/asm-analysis-4.0.jar" size="21843" download="eager" />
+    <jar href="JavaBenchmark.jar" size="40139" download="eager" />
+    <jar href="lib/asm-4.0.jar" size="48873" download="eager" />
+    <jar href="lib/asm-analysis-4.0.jar" size="21841" download="eager" />
     <jar href="lib/asm-commons-4.0.jar" size="40813" download="eager" />
-    <jar href="lib/asm-tree-4.0.jar" size="25285" download="eager" />
+    <jar href="lib/asm-tree-4.0.jar" size="25284" download="eager" />
     <jar href="lib/asm-util-4.0.jar" size="39459" download="eager" />
-    <jar href="lib/asm-xml-4.0.jar" size="57312" download="eager" />
+    <jar href="lib/asm-xml-4.0.jar" size="57309" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaBenchmark" />
   <jfx:javafx-desc  width="800" height="600" main-class="javabenchmark.JavaBenchmark"  name="JavaBenchmark" />
